@@ -1,0 +1,13 @@
+
+.container{width: 100%;overflow: hidden;}
+
+.dijitTabContainerTop-tabs{display: table;width: 100% !important;}
+.dijitTabContainerTop-tabs .dijitTab{display: table-cell;}
+.dijitTab .tabLabel{width: 100%;}
+
+.wcp-tab{overflow: hidden;position: relative;}
+.wcp-tab >div{position: relative !important;left: 0px !important;top: 0px !important;width: 99.333% !important;}
+
+
+.col-xs-6{float: left;}
+.col-xs-6{width: 50%;}
