@@ -9,17 +9,18 @@
 
 <script>
 	dojoConfig = {
+		parseOnLoad:true,
+		async:true,
+		deps: [ 'dojo/parser', 'dojo/dnd/Source' ],
 		//dojo-debug-messages:true,
 		isDebug: true,
 		//dojo-firebug:true,
 		parseOnLoad: true}
 </script>
-<script type="text/javascript" src="./dojo-release-1.10.4/dojo/dojo.js" data-dojo-config="async: true"></script>
+<script type="text/javascript" src="./dojo-release-1.10.4/dojo/dojo.js"></script>
 
 <script>
 require(["dojo/parser", "dijit/layout/TabContainer","dijit/layout/ContentPane"]);
-
-
 
 
 	
@@ -30,11 +31,15 @@ require(["dojo/parser", "dijit/layout/TabContainer","dijit/layout/ContentPane"])
 <body>
 
 <div class="container">
-	<div class="col-xs-6">
+	<div class="col-xs-6 wcp-edit">
 		<div >
 			<div data-dojo-id="wcp-modules-tab" data-dojo-type="dijit/layout/TabContainer" class="wcp-tab" id="tab_content1"> <!-- tab_content1 start -->
 				<div class="wcp-content-pane" data-dojo-type="dijit/layout/ContentPane" title="Content" selected="selected" style="position: relative;">
-					ddd
+				
+					eee
+					
+					
+				
 				</div>
 				<div class="wcp-content-pane" data-dojo-type="dijit/layout/ContentPane" title="Design" >c 222</div>
 			</div><!-- tab_content1 end -->
@@ -43,47 +48,18 @@ require(["dojo/parser", "dijit/layout/TabContainer","dijit/layout/ContentPane"])
 		</div>
 		<div>eee</div>
 	</div>
-	<div class="col-xs-6">review
-		<iframe id="preview-template" src="http://localhost/webv2/wcp/preview.html" frameborder="0" onload="wizard.resizePreview();loadPreview();" style="width: 100%;min-height: 630px;"></iframe> 
+	<div class="col-xs-6 wcp-preview">review
+		<iframe id="preview-template" src="http://localhost/webv2/wcp/preview.html" frameborder="0" style="width: 100%;min-height: 630px;"></iframe> 
 	</div>
 </div>
 
 <script>
-require(["dojo/dom-attr"], function(domAttr){
-	  //result = domAttr.remove(".wcp-content-pane", "style");
-});
-
-require(["dojo/dom-style", "dojo/query", "dojo/NodeList-dom"], function(domStyle, query){
-	/*var sv = domStyle.get("#tab_content1", "opacity");
-	console.log("sv: " +sv);
-	domStyle.set("#tab_content1", "backgroundColor", "red");*/
-	
-	
-	/*var testv = query("#tab_content1_tablist").style("position","relative");
-	var testv = query("#tab_content1_tablist").style("backgroundColor","orange");
-	console.log('testv=' +testv);*/
-	
-	
-});
 
 
 require(["dojo/request/iframe", "dojo/dom", "dojo/dom-construct", "dojo/json", "dojo/on", "dojo/domReady!"],
-		function(iframe, dom, domConst, JSON, on){
-			
+	function(iframe, dom, domConst, JSON, on){
 	iframe.get("preview.html");
-			
-		  /*on(dom.byId("startButton"), "click", function(){
-		    domConst.place("<p>Requesting...</p>", "output");
-		    iframe.get("preview.html", {
-		      handleAs: "json"
-		    }).then(function(data){
-		      domConst.place("<p>data: <code>" + JSON.stringify(data) + "</code></p>", "output");
-		    });
-		  });*/
-		});
-
-
-
+});
 
 </script>
 </body>
