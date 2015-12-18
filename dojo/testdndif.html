@@ -50,6 +50,9 @@ dnd css
 .dojoDndAvatarItem {background-color: #fff;border-bottom:1px solid #666;}
 .dojoDndAvatarItem .itemText {font-size: 120%;}
 
+.left{position: relative;}
+#preview-template,#cartNode{height: 300px;width: 400px;}
+#cartNode{display:block;position: absolute;left: 0px;top: 0px;z-index: 999;opacity:0.5;background-color: #FDE6E1;}
 	</style>
 	
 <script>
@@ -62,6 +65,8 @@ dnd css
 </script>
 <script type="text/javascript" src="../dojo-release-1.10.4/dojo/dojo.js"></script>
 
+
+
 </head>
 <body id="demo2">
 	<div id="store">
@@ -71,31 +76,60 @@ dnd css
 				<li class="dojoDndItem inStock" dndType="inStock">Wrist watch</li>
 				<li class="dojoDndItem inStock" dndType="inStock">Life jacket</li>
 				<li class="dojoDndItem inStock" dndType="inStock">Toy bulldozer</li>
-				<li class="dojoDndItem outOfStock" dndType="outOfStock">Vintage microphone</li>
-				<li class="dojoDndItem outOfStock" dndType="outOfStock">TIE fighter</li>
 				<li class="dojoDndItem inStock" dndType="inStock">Apples</li>
 				<li class="dojoDndItem inStock" dndType="inStock">Bananas</li>
-				<li class="dojoDndItem outOfStock" dndType="outOfStock">Tomatoes</li>
 				<li class="dojoDndItem inStock" dndType="inStock">Bread</li>
+			</ul>
+			
+			<ul data-dojo-type="dojo/dnd/Source" id="tplNode" class="container" data-dojo-props="copyOnly:1">
 			</ul>
 		</div>
 		
-		<div class="cartContainer">
-			<h2>Cart</h2>		
-			
-			<div data-dojo-type="dojo/dnd/Source" data-dojo-props="accept: [ 'inStock' ]" id="cartNode" class="container">
-				<iframe id="preview-template" src="./testdndifprev.html" frameborder="0" ></iframe>
-			</div>
-			
-				
-				
+		<div class="cartContainer left">
+			<h2>Cart</h2>
+			<div data-dojo-type="dojo/dnd/Source" data-dojo-props="accept: [ 'inStock' ]" id="cartNode" class="container" class="edit-over"></div>
+			<iframe id="preview-template" src="./testdndifprev.html" frameborder="0" ></iframe>	
 		</div>
-			
-		
 	</div>
+	
+
+
+<script type="text/javascript">
+require([ "dojo/dom-class", "dojo/dnd/Source", "dojo/domReady!" ], function(domClass, Source){
+	var catalog = new Source("catalogNode");
+	catalog.forInItems(function(item, id, map){  
+        
+    });  
+});
 
 
 
+define(["dojo/string","dojo/dom-construct","dojo/dom-class",  
+        "dojo/dnd/Source","dojo/text!/webv2/wcp2/tpl_slider.html"  
+        ],  
+        function(stringUtil,domConstruct,domClass,Source,template){  
+            //旧货商品数据  
+            var junk = [  
+                { imgsrc: "http://imgtest.comprame.com/HomepageBanner2/D118001_Sep18_290x130.jpg"},
+                { imgsrc: "http://imgtest.comprame.com/HomepageBanner2/A056001_Sep18_290x130.jpg"},
+                { imgsrc: "http://imgtest.comprame.com/HomepageBanner2/A067001a_Sep18_290x130.jpg"}  
+            ];  
+            //根据传入的item对象构建DOM节点  
+            function catalogNodeCreator(item, hint){
+            	console.log(JSON.stringify(item));
+                var node = domConstruct.toDom(stringUtil.substitute(template, {imgsrc: item.imgsrc})),  
+                type = 'slider_imgs';
+                return {node: node, data: item, type: type};  
+            }  
+            //创建Source并导入旧货数据  
+            var junkCatalog = new Source("tplNode", {  
+                creator: catalogNodeCreator  
+            });  
+            junkCatalog.insertNodes(false, junk);  
+});  
+        
+        
+</script>
 	
 </body>
 </html>

@@ -1,66 +1,55 @@
+
+<!DOCTYPE html>
 <html>
 <head>
-<!-- 
-<link href="http://local.comprame.com/admin/view/javascript/bootstrap/css/bootstrap.css" rel="stylesheet" />
- -->
-<link href="./dojo-release-1.10.4/dijit/themes/dijit.css" rel="stylesheet" />
 
-<link href="./dojo.css" rel="stylesheet" />
-
-<script>
-	dojoConfig = {
-		parseOnLoad:true,
-		async:true,
-		deps: [ 'dojo/parser', 'dojo/dnd/Source' ],
-		//dojo-debug-messages:true,
-		isDebug: true,
-		//dojo-firebug:true,
-		parseOnLoad: true}
-</script>
-<script type="text/javascript" src="./dojo-release-1.10.4/dojo/dojo.js"></script>
-
-<script>
-require(["dojo/parser", "dijit/layout/TabContainer","dijit/layout/ContentPane"]);
+<link href="/webv2/bootstrap.css" rel="stylesheet" />
+<link href="./owl.carousel.css" rel="stylesheet" />
+<script type="text/javascript" src="/webv2/jquery/jquery-2.1.4.min.js"></script> 
+<!-- <script type="text/javascript" src="./jquery-1.9.1.min.js"></script> -->
 
 
-	
-	
-</script>
+<script type="text/javascript" src="/webv2/jquery/jquery-ui-1.11.4.js"></script>
+<script type="text/javascript" src="./owl.carousel.min.js"></script>
+<script type="text/javascript" src="./tpl.js"></script>
+
+<style type="text/css">
+.contianer{overflow: hidden;position: relative;}
+#tpl_modules_edit{width: 100%;height: 700px;background-color: red;position: absolute;left: 0px;top: 0px;z-index: -1;}
+
+
+</style>
+
 
 </head>
 <body>
-
-<div class="container">
-	<div class="col-xs-6 wcp-edit">
-		<div >
-			<div data-dojo-id="wcp-modules-tab" data-dojo-type="dijit/layout/TabContainer" class="wcp-tab" id="tab_content1"> <!-- tab_content1 start -->
-				<div class="wcp-content-pane" data-dojo-type="dijit/layout/ContentPane" title="Content" selected="selected" style="position: relative;">
-				
-					eee
-					
-					
-				
-				</div>
-				<div class="wcp-content-pane" data-dojo-type="dijit/layout/ContentPane" title="Design" >c 222</div>
-			</div><!-- tab_content1 end -->
-			
-			<div id="tc1-prog"></div>
+ee
+<div class="contianer">
+	<div class="col-xs-6">
+		<div style="position: relative;overflow: hidden;">
+			<ul id="tpl_modules_edit"></ul>
+			<iframe style="width: 100%;height: 100%;border: 0px;" src="./preview.html" id="previewif"></iframe>
 		</div>
-		<div>eee</div>
+		
 	</div>
-	<div class="col-xs-6 wcp-preview">review
-		<iframe id="preview-template" src="http://localhost/webv2/wcp/preview.html" frameborder="0" style="width: 100%;min-height: 630px;"></iframe> 
+	<div class="col-xs-6">
+		<ul id="tpl_modules">
+			<li>slider imgs</li>
+		</ul>
 	</div>
 </div>
 
-<script>
+<div id="tpl_carousel_imgs" class="owl-carousel">
+	<div><img src="http://imgtest.comprame.com/HomepageBanner2/A056001_Sep18_290x130.jpg" /></div>
+	<div><img src="http://imgtest.comprame.com/HomepageBanner2/D118001_Sep18_290x130.jpg" /></div>
+	<div><img src="http://imgtest.comprame.com/HomepageBanner2/A067001a_Sep18_290x130.jpg" /></div>
+	
+</div>
 
 
-require(["dojo/request/iframe", "dojo/dom", "dojo/dom-construct", "dojo/json", "dojo/on", "dojo/domReady!"],
-	function(iframe, dom, domConst, JSON, on){
-	iframe.get("preview.html");
-});
 
-</script>
+
+
+
 </body>
 </html>
