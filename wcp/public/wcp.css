@@ -1,0 +1,11 @@
+*{-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;}
+[ng-drag]{-moz-user-select: -moz-none;-khtml-user-select: none;-webkit-user-select: none;-ms-user-select: none;user-select: none;}
+[ng-drag]{width: 100%;height: 100px;background: rgba(255,0,0, 0.5);color:white;text-align: center;padding-top:40px;display: inline-block;margin:0 10px;cursor: move;}
+ul.draggable-objects:after{display: block;content:"";clear:both;}
+[ng-drag].drag-over{border:solid 1px red;}
+[ng-drag].dragging{opacity: 0.5;}
+
+.ng-drop-area{width: 100%;height: 400px;background-color: #CDCACA;position: relative;left: 0px;top: 0px;}
+
+.ng-drag-area li{list-style: none; display: inline-block;width: 20%;float: left;background-color: gray;text-align: center;overflow: hidden;}
+.ng-drag-area .wcp-dragg-item{width: 80%;height: 80px;background-color: green;cursor: pointer;flo}
