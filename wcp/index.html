@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html ng-app="wcp-app">
 <head>
-
-<link href="http://local.comprame.com/admin/view/javascript/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<meta charset="utf-8" />
+<link
+	href="http://local.comprame.com/admin/view/javascript/bootstrap/css/bootstrap.css"
+	rel="stylesheet" />
 <link href="public/wcp.css" rel="stylesheet" />
 <link rel="stylesheet" href="public/jquery-ui1.11.14.css" />
 <script type="text/javascript" src="public/jquery-2.1.4.min.js"></script>
@@ -10,37 +12,61 @@
 <script type="text/javascript" src="public/owl.carousel-1.3.3.js"></script>
 <script type="text/javascript" src="public/angular.min.1.3.9.js"></script>
 <!-- <script src="http://code.angularjs.org/angular-1.0.1.min.js"></script> -->
-<script type="text/javascript" src="public/lt-wcp.js"></script>
+<script type="text/javascript" src="public/lt-wcp.js" charset="utf8"></script>
 <script type="text/javascript" src="public/ngDraggable.js"></script>
 
-  
-  
+
+
 </head>
 <body>
 
-	
+
+<div class="directivemd2"></div>
+
 
 	<div class="contianer" ng-controller="wcpModulesController">
 		<div class="col-xs-6">
-			<div ng-drop="true" ng-drop-success="onDropComplete($data,$event)" class="ng-drop-area">
-	          <span class="title">Drop area #1</span>
-	          <div ng-repeat="obj in droppedObjects1" ng-drag="true" ng-drag-data="obj" ng-drag-success="onDragSuccess($data,$event)" ng-center-anchor="{{centerAnchor}}">
-	              {{obj.name}}
-	          </div>
-	
-	      	</div>
-			<iframe style="width: 100%;height: 700px;border: 0px;" ng-src="{{previewUrl}}" id="previewif" ></iframe>
+
+			<ul class="draggable-objects ng-drag-area">
+				<li ng-repeat="obj in draggModuelsArray">
+					<div ng-drag="true" class="wcp-dragg-item" ng-drag-data="obj"
+						data-allow-transform="true" ng-if="true">{{obj.title}}</div>
+				</li>
+			</ul>
+			
+			<div class="edit-panes">
+				<div ng-repeat="obj in draggModuelsArray" class="edit-panel" wcp-type="edit-{{obj.type}}" ng-show="{{obj.md_id}}_ShowFlag">
+					<h1>{{obj.title}} edit</h1>
+					<div class="{{obj.directive}}"></div>
+					<div class="editdirective"></div>
+				</div>
+			</div>
+
 		</div>
 		<div class="col-xs-6" style="height: 700px;">
-		
-			<ul class="draggable-objects ng-drag-area">
-	            <li ng-repeat="obj in draggableObjects">
-	                <div ng-drag="true" class="wcp-dragg-item" ng-drag-data="obj" data-allow-transform="true" ng-if="true"> {{obj.name}} </div>
-	            </li>
-	        </ul>
-	        
-			
+
+			<div ng-drop="true" ng-drop-success="onDropComplete($data,$event)"
+				class="ng-drop-area">
+				<div ng-repeat="obj in droppModuelArray" ng-center-anchor="{{centerAnchor}}" class="wcp-module" data-module-id="{{obj.wcpMId}}">
+					<div class="moduel-edit-pane">
+						<a>edit</a><a ng-click="remvoeModule(obj)">remove</a>
+					</div>
+				</div>
+			</div>
+			<iframe class="preview-if" ng-src="{{previewUrl}}" id="previewif"></iframe>
+
+
+
+
+
 		</div>
-	</div>	
+	</div>
+	
+	
+<script>
+
+
+
+</script>
 </body>
 </html>

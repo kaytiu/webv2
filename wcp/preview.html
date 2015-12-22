@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html ng-app="wcp-app">
 <head>
-<script type="text/javascript" src="public/jquery-2.1.4.min.js"></script>
+<meta charset="utf-8" />
+<link href="http://local.comprame.com/admin/view/javascript/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<link href="public/wcp.css" rel="stylesheet" />
+
 <script type="text/javascript" src="public/angular.min.1.3.9.js"></script>
 <script type="text/javascript" src="public/lt-wcp-preview.js"></script>
 
 <!-- 
-<link href="http://local.comprame.com/admin/view/javascript/bootstrap/css/bootstrap.css" rel="stylesheet" />
-<link href="public/wcp.css" rel="stylesheet" />
+
 <link rel="stylesheet" href="public/jquery-ui1.11.14.css" />
 
 <script type="text/javascript" src="public/jquery-ui-1.11.14.min.js"></script>
@@ -18,12 +20,26 @@
  -->
 
 </head>
-<body>
+<body class="preview">
 
-<div ng-controller="wcpPreviewController">	
-	<div ng-repeat="module in wcpModules">
-		<div>{{module.name}}</div>
+<div ng-controller="wcpPreviewController">
+	<div ng-repeat="obj in wcpModules" ng-center-anchor="{{centerAnchor}}" class="prview-wcp-module">
+		<p>{{obj.title}} = {{obj.wcpMId}}</p>
 	</div>
+				<!-- 	
+	<div ng-repeat="module in wcpModules">
+		<div id="{{module.wcpMId}}" wcp-type="{{module.type}}" class="wcp-module preview-wcp-module">			
+			<p>{{module.title}} = {{module.wcpMId}}</p>
+			<div class="testkwan"></div>
+		</div>
+	</div>
+	 -->
 </div>
+
+<script type="text/javascript" src="public/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="public/owl.carousel-1.3.3.js"></script>
+<script type="text/javascript" src="public/lt-wcp-preview-load.js"></script>
+
+
 </body>
 </html>

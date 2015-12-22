@@ -1,10 +1,11 @@
-var app = angular.module('wcp-app', ['ngDraggable']);
+var app = angular.module('wcp-app', []);
 
 
 
 
 app.controller('wcpPreviewController', function($scope) {
 	var wcpModules = sessionStorage.getItem('wcpModules');
+//	console.log('wcpModules=' + wcpModules);
 	wcpModules = JSON.parse(wcpModules);
 	if(wcpModules){
 		$scope.wcpModules = wcpModules;
@@ -12,5 +13,6 @@ app.controller('wcpPreviewController', function($scope) {
 		$scope.wcpModules = [];
 	}
 });
+
 
 

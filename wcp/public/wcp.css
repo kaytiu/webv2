@@ -1,11 +1,57 @@
-*{-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;}
+*{-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;font-size: 14px;}
+a{cursor: pointer;}
 [ng-drag]{-moz-user-select: -moz-none;-khtml-user-select: none;-webkit-user-select: none;-ms-user-select: none;user-select: none;}
 [ng-drag]{width: 100%;height: 100px;background: rgba(255,0,0, 0.5);color:white;text-align: center;padding-top:40px;display: inline-block;margin:0 10px;cursor: move;}
 ul.draggable-objects:after{display: block;content:"";clear:both;}
 [ng-drag].drag-over{border:solid 1px red;}
 [ng-drag].dragging{opacity: 0.5;}
 
-.ng-drop-area{width: 100%;height: 400px;background-color: #CDCACA;position: relative;left: 0px;top: 0px;}
+.ng-drop-area{width: 100%;height: 700px;background-color: transparent;position: absolute;left: 0px;top: 0px;z-index: 1;padding-left: 15px;padding-right: 15px;}
+.preview-if{width: 100%;height: 700px;border: 0px;position: relative;z-index: 0;}
 
 .ng-drag-area li{list-style: none; display: inline-block;width: 20%;float: left;background-color: gray;text-align: center;overflow: hidden;}
 .ng-drag-area .wcp-dragg-item{width: 80%;height: 80px;background-color: green;cursor: pointer;flo}
+
+.moduel-edit-pane{background-color: transparent;color: transparent;text-align: right;position: absolute;left: 0px;top: 0px;width: 100%;}
+.moduel-edit-pane:HOVER{background-color: red;color: #000;}
+.moduel-edit-pane a{font-size: 1.5em;text-decoration: none;}
+.moduel-edit-pane a:FIRST-CHILD{margin-right: 20px;}
+
+/*.edit-panel{display: none;}*/
+
+
+
+
+
+
+/**
+¹«ÓÃ¡¡
+**/
+
+.prview-wcp-module,.wcp-module{background-color: transparent;min-height: 80px;padding-top: 30px;position: relative;overflow: hidden;border: 1px solid #dcdcdc;}
+.prview-wcp-module{background-color: green;}
+.wcp-module:HOVER{border: 5px solid #58fefe;}
+
+
+
+
+
+
+
+
+
+/***
+preview.html
+*/
+
+.preview{background-color: yellow;}
+
+/*.preview .wcp-module{margin-top: 30px;}*/
+/*.edit-pane{background-color: #F9BDBD;opacity: 0.5;text-align: right;}
+.edit-pane a{line-height: 20px;}
+.edit-pane a:FIRST-CHILD{margin-right: 10px;}*/
+
+/*.wcp-module .edit-pane{display: none;}*/
+/*.wcp-module:HOVER{background-color: red;}*/
+
+/*.wcp-module:HOVER .edit-panel{display: block;}*/
