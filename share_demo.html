@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript" src="http://local.comprame.com/catalog/view/javascript/jquery/jquery-2.1.1.min.js?j2v=2.5.4-1.4.0"></script>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '496148373867645',
+      xfbml      : true,
+      version    : 'v2.5'
+    });   
+	
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<script type="text/javascript">
+
+function share1(){
+	 FB.ui({
+   	  method: 'feed',
+   	  link: 'http://www.comprame.com/share100k.html',
+   	  caption: 'Share Comprame demo',
+   	}, function(response){
+   	   	if(response && response.post_id){
+   	   	   	alert('share success');
+   	   	}else{
+   	   		alert('share failed');
+   	   	}
+   	});
+}
+
+</script>
+
+
+
+<script>
+window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+ 
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+ 
+  return t;
+}(document, "script", "twitter-wjs"));
+
+
+
+
+twttr.ready(
+		  function (twttr) {
+
+			  twttr.events.bind(
+					  'rendered',
+					  function (event) {
+					    console.log("rendered: ", event.target.id);
+					  }
+					);
+
+
+			  twttr.events.bind(
+					  'tweet',
+					  function (event) {
+						  console.log('tweet: ' + JSON.stringify(event));
+					    // Do something there
+					  }
+					);
+
+			 
+		  		
+		  }
+		);
+		
+
+</script>
+</head>
+
+<body>
+
+<div>
+	<a  onclick="share1()">test share1</a>
+	
+
+	<a class="twitter-share-button"
+	  href="https://twitter.com/share"
+	  data-size="large"
+	  data-url="http://www.comprame.com/share100ss1kes.html"
+	  data-via="twitterdev"
+	  data-related="twitterapi,twitter"
+	  data-hashtags="example,demo"
+	  data-text="custom share text">
+	Tweet
+	</a>
+
+	</div>	
+</body>
+</html>
