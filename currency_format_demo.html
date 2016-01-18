@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript" src="http://local.comprame.com/catalog/view/javascript/jquery/jquery-2.1.1.min.js?j2v=2.5.4-1.4.0"></script>
+
+<script>
+/**
+places:  小数位数
+symbol: 货币前缀
+thousand: 千位符号
+decimal: 小数位符号
+*/
+Number.prototype.formatMoney = function (places, symbol, thousand, decimal) {
+    places = !isNaN(places = Math.abs(places)) ? places : 0;
+    symbol = symbol !== undefined ? symbol : "$";
+    thousand = thousand || ",";
+    decimal = decimal || ".";
+    var number = this,
+        negative = number < 0 ? "-" : "",
+        i = parseInt(number = Math.abs(+number || 0).toFixed(places), 10) + "",
+        j = (j = i.length) > 3 ? j % 3 : 0;
+    return symbol + negative + (j ? i.substr(0, j) + thousand : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thousand) + (places ? decimal + Math.abs(number - i).toFixed(places).slice(2) : "");
+};
+
+$(document).ready(function(){
+	var value = 11001.25689;
+	$('#span1').text(value);
+	$('#span2').text(value.formatMoney(3,'COP $', '.', ','));
+	$('#span3').text(value.formatMoney(2,'USD $', ',', '.'));
+});
+
+
+
+
+</script>
+
+
+
+</head>
+
+<body>
+
+<div id="span1"></div>
+<div id="span2"></div>
+<div id="span3"></div>
+
+</body>
+</html>
