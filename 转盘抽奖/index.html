@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript" src="http://local.comprame.com/catalog/view/javascript/jquery/jquery-2.1.1.min.js?j2v=2.5.4-1.4.0"></script>
+<script type="text/javascript" src="./jquery.easing.min.js"></script>
+<script type="text/javascript" src="./jquery.rotate.js"></script>
+
+<style>
+.turntable{background-image:url('./turntable.png');width:590px;height:590px;margin:auto;position:relative;}
+.pointer{position:absolute;left:95px;top:95px;}
+</style>
+
+<script>
+	var spoildata = {
+		'1': {'spoilcode':'1','angle': 185},
+		'2': {'spoilcode':'2','angle': 90},
+		'3': {'spoilcode':'3','angle': 305},
+		'4': {'spoilcode':'4','angle': Math.floor(115+Math.random()*(170-115))},
+		'5': {'spoilcode':'5','angle': Math.floor(Math.random()*65)},
+		'6': {'spoilcode':'6','angle': Math.floor(205+Math.random()*(285-205))}
+	};
+				
+//奖品编码 
+function turntable(spoilcode){
+	var data = spoildata[spoilcode];
+	
+
+	$('#pointer').rotate({
+			angle:0,  //起始角度
+			duration: 1000 * 1,  //结束时间
+			animateTo: data.angle+ (360 * 4),  //结束角度 转4圈
+			easing: $.easing.easeInOutExpo, //定义运动的效果，需要引用jquery.easing.min.js的文件
+			callback:function(){
+				console.log('callback');
+			}
+	}); 
+}
+
+</script>
+</head>
+
+<body>
+
+<div>
+	<a href="javascript:turntable(1);">一等奖</a>
+	<a href="javascript:turntable(2);">二等奖</a>
+	<a href="javascript:turntable(3);">三等奖</a>
+	<a href="javascript:turntable(4);">四等奖</a>
+	<a href="javascript:turntable(5);">五等奖</a>
+	<a href="javascript:turntable(6);">六等奖</a>
+</div>
+<div class="turntable"><a href="javascript:turntable(2);"><img src="./pointer.png" class="pointer" id="pointer"/></a></div>
+
+  
+</body>
+</html>
