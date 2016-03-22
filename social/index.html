@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Face book emo</title>
+
+    
+<script type="text/javascript">    
+//接口   可去掉
+var LTShare = function(){
+	this.sharett = function(shareData){
+		var url = 'https://twitter.com/intent/tweet?1=1';
+		for(var key in shareData){
+			url += '&' + key + '=' + shareData[key];
+		}
+		var myWindow = window.open(url, "window1", "width=500, height=500,scrollbars=no, resizable=no, top=300, left=600");
+		
+	};
+	this.sharegoogle = function(shareData){
+		var url = 'https://plus.google.com/share?1=1';
+		for(var key in shareData){
+			url += '&' + key + '=' + shareData[key];
+		}
+		var myWindow = window.open(url, "window1", "width=500, height=500,scrollbars=no, resizable=no, top=300, left=600");
+	};
+	this.sharefb = function(shareData){
+		shareData.method = 'feed';
+		if(!shareData.caption){
+			shareData.caption = 'share to Facebook';
+		}
+		if(!shareData.caption){
+			shareData.link = window.location.href;
+		}
+		FB.ui(shareData, function(response){
+		   	   	if(response && response.post_id){
+		   	   	   	
+		   	   	}else{
+		   	   		
+		   	   	}
+		   	});
+	}
+};
+</script>
+
+    
+    <script type="text/javascript">
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+
+
+    window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1671233446469817',
+          cookie	:true,
+          xfbml      : true,
+          oauth		:true,
+          version    : 'v2.5'
+        });
+      };
+
+
+
+      function fblogin(){
+      	FB.login(function(response){
+      		if(!response || response.status != 'connected'){
+      			return;
+      		}
+      		FB.api('/me?fields=first_name, last_name, email, gender, link, locale, name, timezone, updated_time, verified', function(response) {
+      			alert(JSON.stringify(response));
+      		});
+      	}
+      	,{scope:'public_profile,email'}
+      	);
+      }
+
+
+      function sharett(){
+      	var ltshare =  new LTShare();
+      	var text = 'tes text ';
+      	var shareData = {
+      			'text':text,
+      			'via':'Comprame.com',
+      			'url':'http://www.comprame.com/dias-de-moda?utm_source=TWITTER_SHARE&utm_medium=REFERRAL&utm_campaign=dias-de-moda&utm_content=Page_dias-de-moda'
+      		};
+      	ltshare.sharett(shareData);
+      	
+      }
+      function sharefb(){
+      	var ltshare =  new LTShare();
+      	var shareData = {
+      			'name':'tes name name ',
+      			'description':'test description description',
+      			'link' 		: 'http://www.comprame.com/dias-de-moda.html#utm_source=FACEBOOK_SHARE&utm_medium=REFERRAL&utm_campaign=dias-de-moda&utm_content=Page_dias-de-moda',
+      			'picture'	: 'http://img6.comprame.com/20160314shishangjie/fbshare.jpg'
+      	};
+      	ltshare.sharefb(shareData);
+      }
+
+      function shareGoogle(){
+    	  var ltshare =  new LTShare();
+    	  var url = 'www.comprame.com?utm_source=GOOGLE_SHARE&utm_medium=REFERRAL&utm_campaign=Product&utm_content=Product_454545';
+			var shareData = {'url':url};
+			ltshare.sharegoogle(shareData);
+      }
+      
+    </script>
+</head>
+<body>
+   <ul>
+   	<li><a href="javascript:fblogin();">test FB login</a></li>
+   	<li><a href="javascript:sharefb();">test FB Share</a></li>
+   	<li><a href="javascript:sharett();">test Twitter Share</a></li>
+   	<li><a href="javascript:shareGoogle();">test Google Share</a></li>
+   </ul>
+</body>
+</html>
