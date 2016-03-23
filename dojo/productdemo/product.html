@@ -1,0 +1,72 @@
+
+
+<!DOCTYPE html> 
+<html> 
+	<head> 
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <title>商品祥情</title>
+        
+        
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojox/mobile/deviceTheme.js"></script>
+        <script type="text/javascript">
+		    dojoConfig = {
+		        async: true,
+		        parseOnLoad: false
+		    };
+		</script>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"></script>
+        <script type="text/javascript">
+	        require([
+	            "dojox/mobile/parser",
+// 	            "dojox/mobile",
+// 	            "dojox/mobile/compat",
+	            "dojox/mobile/View",
+	            "dojox/mobile/Heading",
+// 	            "dojox/mobile/RoundRectList",
+// 	            "dojox/mobile/ListItem",
+// 	            "dojox/mobile/Switch",
+				"dojox/mobile/Carousel",
+				"dojox/mobile/DataCarousel",
+				"dojo/data/ItemFileReadStore",
+	            "dojo/domReady!"
+	        ], function (parser) {
+	            // now parse the page for widgets
+	            parser.parse();
+	        });
+
+	    </script>
+        
+        
+		
+	</head>
+	<body style="visibility:hidden;">
+		
+		<div data-dojo-type="dojox/mobile/View" data-dojo-props="selected:true">
+			<h1 data-dojo-type="dojox/mobile/Heading">XXXX 商品详情页</h1>
+			
+			
+			<div data-dojo-type="dojo/data/ItemFileReadStore" data-dojo-id="sampleStore" data-dojo-props='url:"./sample2.json"'></div>
+				<div id="carousel1" data-dojo-type="dojox/mobile/DataCarousel" data-dojo-props='store:sampleStore, height:"250px", navButton:true, numVisible:1, title:"Category"'>
+			</div>
+			
+			<div data-dojo-type="dojo/data/ItemFileReadStore" data-dojo-id="sampleStore" data-dojo-props='url:"./sample2.json"'></div>
+				<div id="carousel1" data-dojo-type="dojox/mobile/DataCarousel" data-dojo-props='store:sampleStore, height:"250px", navButton:true, numVisible:1, title:"Category"'>
+			</div>
+			
+
+
+			
+		</div>
+	   	
+	   	<!-- 
+	   	
+	   	
+	   	<div data-dojo-type="dojox/mobile/CarouselItem" data-dojo-props='src:"http://img7.comprame.com/product/D195010/D195010b_01.600x600.jpg", value:"dish", headerText:"dish"'></div>
+					 <div data-dojo-type="dojox/mobile/CarouselItem" data-dojo-props='src:"http://img8.comprame.com/product/D195010/D195010e_01.640x500.jpg?_v=v1.4.0", value:"glass", headerText:"glass"'></div>
+					 <div data-dojo-type="dojox/mobile/CarouselItem" data-dojo-props='src:"http://img6.comprame.com/product/D195010/D195010f_01.640x500.jpg?_v=v1.4.0", value:"glass", headerText:"glass"'></div>
+					 <div data-dojo-type="dojox/mobile/CarouselItem" data-dojo-props='src:"http://img8.comprame.com/product/D195010/D195010d_01.640x500.jpg?_v=v1.4.0", value:"glass", headerText:"glass"'></div>
+	   	 -->
+	</body>
+</html>
