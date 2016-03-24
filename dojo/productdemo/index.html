@@ -1,25 +1,59 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title></title>
 
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
-<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
-<meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type">
-<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
-<meta content="no-cache" http-equiv="pragma">
-<meta content="0" http-equiv="expires">
-<meta content="telephone=no, address=no" name="format-detection">
-<meta name="apple-mobile-web-app-capable" content="yes"/>
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/> 
 
-</head>
+<!DOCTYPE html> 
+<html> 
+	<head> 
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <title>商品祥情</title>
+        
+        
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojox/mobile/deviceTheme.js" data-dojo-config="mblThemeFiles: ['base','Carousel','PageIndicator','dijit.Calendar']"></script>
+        <script type="text/javascript">
+		    dojoConfig = {
+		        async: true,
+		        parseOnLoad: true
+		    };
+		</script>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"></script>
+        <script type="text/javascript">
+        require([
+                 "dijit/CalendarLite",
+                 "dojox/mobile",
+                 "dojox/mobile/parser",
+                 "dojox/mobile/Carousel",
+                 "dojox/mobile/ScrollableView",
+                 "dojox/mobile/ContentPane"
+             ]);
 
-<body>
-
-    
-
-</body>
+	    </script>
+        
+        
+		
+	</head>
+	<body>
+		<div data-dojo-type="dojox/mobile/View" data-dojo-props="selected:true">
+			<h1 data-dojo-type="dojox/mobile/Heading">XXXX 商品详情页</h1>
+			<div data-dojo-type="dojox/mobile/ScrollableView">
+				<div id="carousel1" data-dojo-type="dojox/mobile/Carousel" data-dojo-props='pageIndicator:false'>
+				    <div data-dojo-type="dojox/mobile/SwapView"><div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props="content:'&lt;img src=&quot;http://img8.comprame.com/product/D195010/D195010e_01.640x500.jpg&quot; &gt;'"></div></div>
+				    <div data-dojo-type="dojox/mobile/SwapView"><div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props="content:'&lt;img src=&quot;http://img8.comprame.com/product/D195010/D195010f_01.640x500.jpg&quot; &gt;'"></div></div>
+				    <div data-dojo-type="dojox/mobile/SwapView"><div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props="content:'&lt;img src=&quot;http://img8.comprame.com/product/D195010/D195010d_01.640x500.jpg&quot; &gt;'"></div></div>
+				</div>
+				<div>【愛心義賣】特色中國河南館 寧陵酥梨8斤 新鮮水果酥甜包郵</div>
+				<div>￥19.90</div>
+				<div>原價 ¥</div>
+				<div>商品介绍区</div>
+				<div>付款</div>
+				<div style="height: 100px;background-color: red;"></div>
+				<div style="height: 100px;background-color: #dcdcdc;"></div>
+				<div style="height: 100px;background-color: #d4d4d4;"></div>
+				<div style="height: 100px;background-color: #fefefe;"></div>
+			</div>
+			<h1 data-dojo-type="dojox/mobile/Heading">付款</h1>
+		</div>
+			
+			
+	</body>
 </html>
-
