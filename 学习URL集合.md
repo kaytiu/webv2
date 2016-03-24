@@ -4,7 +4,8 @@
 
 # dojo
 	官方API： https://dojotoolkit.org/api/
-分享插件 sharethis: http://support.sharethis.com/customer/portal/articles/475079-share-properties-and-sharing-custom-information
-在线图片压缩： http://img.hust.cc/
-网页性能在线测试: https://gtmetrix.com/
-maven 在线库搜索: http://mvnrepository.com/
+# 其它
+	分享插件 sharethis: http://support.sharethis.com/customer/portal/articles/475079-share-properties-and-sharing-custom-information
+	在线图片压缩： http://img.hust.cc/
+	网页性能在线测试: https://gtmetrix.com/
+	maven 在线库搜索: http://mvnrepository.com/
